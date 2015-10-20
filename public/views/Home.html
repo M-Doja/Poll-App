@@ -1,0 +1,8 @@
+<div ng-controller="HomeController as vm">
+	<div style="text-align:center;">
+		<a ui-sref="CreateSurvey" class="btn btn-success">Create</a>
+	</div>
+		<ul>
+			<li ng-repeat="s in vm.surveys"><a ui-sref="TakeSurvey({id:s._id})">{{s.topic}}</a> - by: {{s.createdBy}}</li>
+		</ul>
+</div>

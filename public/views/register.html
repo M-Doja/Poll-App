@@ -1,0 +1,16 @@
+<br>
+<form class="well container" ng-submit="nav.registerUser()">
+  <label>Username</label>
+  <input class="form-control" placeholder="Username..." ng-model="nav.user.username" required>
+  <label>Email</label>
+  <input class="form-control" type="email" placeholder="Email..." ng-model="nav.user.email" required>
+  <label>Password</label>
+  <input class="form-control" type="password" placeholder="Password..." ng-model="nav.user.password" required>
+  <label>Confirm Password</label>
+  <input class="form-control" type="password" placeholder="Confirm Password..." ng-model="nav.user.confirmPassword" required>
+  <div ng-show="nav.user.password && nav.user.confirmPassword && !(nav.user.password === nav.user.confirmPassword)" style="color: red">Your passwords must match.</div>
+  <div style="text-align:center">
+    <a ui-sref="Login" class="btn btn-primary">Login</a>
+    <button type="submit" class="btn btn-info" ng-disabled="!nav.user.email || !nav.user.username || !nav.user.password || !(nav.user.password === nav.user.confirmPassword)">Register</button>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+<div ng-controller="TakeSurveyController as vm">
+  <br>
+  <br>
+  <div class="well container" ng-show="!vm.showResults">
+    <h3>{{vm.survey.topic}}</h3>
+    <h4>created by: <i>{{vm.survey.createdBy}}</i></h4>
+    <span ng-repeat="a in vm.survey.answers">
+    <label >
+      <input type="radio" ng-model="vm.selectedAnswer" ng-value="a._id">
+      {{a.choice}}
+    </label>
+    <br>
+    </span>
+    <div style="text-align: center;">
+      <button type="button" ng-disabled="!vm.selectedAnswer" class="btn btn-success" ng-click="vm.answerSurvey()">Submit Answer</button>
+    </div>
+  </div> <!-- end of well for answering survey -->
+  <div class="well container" ng-show="vm.showResults">
+    <h3>{{vm.survey.topic}}</h3>
+    <h4>created by: <i>{{vm.survey.createdBy}}</i></h4>
+    <div ng-repeat="a in vm.survey.answers">
+      <h4>({{a.numAnswered}}) - {{a.choice}}</h4>
+    </div>
+  </div>
+</div>

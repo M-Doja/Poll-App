@@ -1,0 +1,18 @@
+<div ng-controller="CreateSurveyController as vm">
+  <form class="well container" ng-submit="vm.createSurvey()">
+    <label>Topic</label>
+    <input class="form-control" placeholder="Topic..." ng-model="vm.survey.topic">
+    <label>Your Name</label>
+    <input class="form-control" placeholder="Your Name..." ng-model="vm.survey.createdBy">
+    <br>
+    <button type="button" class="btn btn-default" ng-click="vm.survey.answers.push({});">Add New Answer</button>
+    <br>
+    <span ng-show="vm.message" style="color: red">{{vm.message}}</span>
+    <ul>
+      <li ng-repeat="a in vm.survey.answers"><input class="form-control" style="width: 90%; display: inline-block;" placeholder="Answer..." ng-model="vm.survey.answers[$index].choice"><button type="button" class="btn btn-danger" ng-click="vm.survey.answers.splice($index, 1)">X</button></li>
+    </ul>
+    <div style="text-align: center;">
+      <button type="submit" class="btn btn-success" ng-disabled="!(vm.survey.answers.length > 1) || !vm.survey.topic || !vm.survey.createdBy">Submit</button>
+    </div>
+  </form>
+</div>
