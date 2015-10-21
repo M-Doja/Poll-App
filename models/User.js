@@ -6,7 +6,8 @@ var UserSchema = new mongoose.Schema({
   username: {required: true, unique: true, type: String, lowercase: true, trim: true},
   email: {required: true, unique: true, type:String, lowercase: true, trim: true},
   passwordHash: String,
-  salt: String
+  salt: String,
+  surveys: [{type: mongoose.Schema.Types.ObjectId, ref: 'Survey'}]
 });
 
 UserSchema.methods.setPassword = function(password) {
@@ -25,8 +26,7 @@ UserSchema.methods.checkPassword = function(password) {
 UserSchema.methods.createToken = function() {
   return jwt.sign({
     _id: this._id,
-    username: this.username,
-    role: "Awesome Role Guy"
+    username: this.username
   }, "HashBrowns");
 };
 

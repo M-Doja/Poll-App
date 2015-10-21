@@ -19,7 +19,7 @@
     <h3>{{vm.survey.topic}}</h3>
     <h4>created by: <i>{{vm.survey.createdBy}}</i></h4>
     <div ng-repeat="a in vm.survey.answers">
-      <h4>({{a.numAnswered}}) - {{a.choice}}</h4>
+      <h4>({{a.answered.length}}) - {{a.choice}}</h4>
     </div>
   </div>
 </div>

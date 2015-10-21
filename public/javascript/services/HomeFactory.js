@@ -18,7 +18,7 @@
 
 		o.getSurveyById = function(id) {
 			var q = $q.defer();
-			$http.get('/api/survey/' + id).then(function(res) {
+			$http.post('/api/survey/kareem',{surveyId: id}, getAuth()).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -36,7 +36,7 @@
 			}
 			if(survey.answers.length < 2) q.reject(survey);
 			else {
-				$http.post('/api/survey', survey).then(function(res) {
+				$http.post('/api/survey', survey, getAuth()).then(function(res) {
 					q.resolve(res);
 				});
 			}
@@ -45,11 +45,19 @@
 
 		o.answerSurvey = function(answerId, surveyId) {
 			var q = $q.defer();
-			$http.put('/api/survey/' + surveyId + '/' + answerId).then(function(res) {
+			$http.put('/api/survey/' + surveyId + '/' + answerId, null, getAuth()).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
 		};
+
+		function getAuth() {
+			return {
+				headers: {
+					Authorization: "Bearer " + localStorage.getItem('token')
+				}
+			};
+		}
 
 		return o;
 	}

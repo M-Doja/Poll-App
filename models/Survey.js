@@ -4,10 +4,10 @@ var SurveySchema = new mongoose.Schema({
   topic: { required: true, type: String },
   created: Date,
   deleted: Date,
-  createdBy: { required: true, type: String },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   answers: [{
     choice: { required: true, type: String },
-    numAnswered: { default: 0, type: Number }
+    answered: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true }]
   }]
 });
 

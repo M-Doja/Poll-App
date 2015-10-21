@@ -1,0 +1,12 @@
+<!-- Within the GlobalController -->
+
+<h3>{{nav.status.username}}'s Surveys</h3>
+<div ng-repeat='topics in vm.surveyarray' class="well container">
+<ul>
+  <li>Survey: {{topics.topic}}</li>
+  <div ng-repeat="a in topics.answers">
+  <h4>({{a.answered.length}}) - {{a.choice}}</h4>
+  </div>
+</ul>
+
+</div>

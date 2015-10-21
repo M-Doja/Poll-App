@@ -14,12 +14,13 @@
     };
 
     vm.loginUser = function() {
+      console.log("First Stop on Data flow journey");
       UserFactory.loginUser(vm.user).then(function() {
         $state.go('Home');
-        vm.user = {}; 
       });
     };
-    vm.logout = function(){
+
+    vm.logout = function() {
       UserFactory.logout();
       $state.go('Login');
     };

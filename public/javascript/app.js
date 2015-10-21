@@ -19,6 +19,11 @@
 		}).state('Register', {
 			url: '/register',
 			templateUrl: 'views/register.html'
+		}).state('Profile',{
+				url: '/profile/:id',
+				templateUrl: 'views/profile.html',
+				controller: 'ProfileController',
+				controllerAs: "vm"
 		});
 		$urlRouterProvider.otherwise('/');
 	}
