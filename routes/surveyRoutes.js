@@ -34,6 +34,7 @@ var found = false;
 for(var i = 0; i < req.survey.answers.length; i++ ) {
   if(req.survey.answers[i].answered.some(function(elem, indx, array) {
     return elem == req.payload._id;
+    console.log(req.payload._id);
   })) {
     found = true;
     break;

@@ -12,13 +12,14 @@
 			var q = $q.defer();
 			$http.get('/api/survey').then(function(res) {
 				q.resolve(res.data);
+				console.log(res.data);
 			});
 			return q.promise;
 		};
 
 		o.getSurveyById = function(id) {
 			var q = $q.defer();
-			$http.post('/api/survey/kareem',{surveyId: id}, getAuth()).then(function(res) {
+			$http.post('/api/survey/',{surveyId: id}, getAuth()).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;

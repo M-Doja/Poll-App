@@ -1,4 +1,5 @@
 <br>
+<div ng-controller='UserController as vm'>
 <form class="well container" ng-submit="nav.loginUser()">
   <label>Username</label>
   <input class="form-control" required placeholder="Username..." ng-model="nav.user.username">
@@ -9,3 +10,4 @@
     <button type="submit" class="btn btn-primary" ng-disabled="!nav.user.username || !nav.user.password">Login</button>
   </div>
 </form>
+<div>

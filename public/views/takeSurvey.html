@@ -3,7 +3,7 @@
   <br>
   <div class="well container" ng-show="!vm.showResults">
     <h3>{{vm.survey.topic}}</h3>
-    <h4>created by: <i>{{vm.survey.createdBy}}</i></h4>
+    <h4>created by: <i>{{vm.survey.createdBy.username}}</i></h4>
     <span ng-repeat="a in vm.survey.answers">
     <label >
       <input type="radio" ng-model="vm.selectedAnswer" ng-value="a._id">
